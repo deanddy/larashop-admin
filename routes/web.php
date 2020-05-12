@@ -12,9 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
+Route::match(['get', 'post'], '/register', function () {
+    return redirect("/login");
+})->name("register");
 
 Route::get('/home', 'HomeController@index')->name('home');
