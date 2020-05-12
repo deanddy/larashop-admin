@@ -14,10 +14,12 @@
 Route::get('/', function () {
     return view('auth.login');
 });
-
 Auth::routes();
 Route::match(['get', 'post'], '/register', function () {
     return redirect("/login");
-})->name("register");
+})->name("register"); //Agar ketika halaman register di akses akan otomatis dialihkan ke halaman login
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('users', 'UserController');
+
+?>
