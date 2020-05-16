@@ -14,7 +14,7 @@
     </div>
   @endif
 
-  <form ecntype="multipart/form-data" class="bg-white shadow-sm p-3" action="{{route('users.store')}}" method="POST">
+  <form enctype="multipart/form-data" class="bg-white shadow-sm p-3" action="{{route('users.store')}}" method="POST">
     @csrf
 
     <label for="name">Name</label>
@@ -68,4 +68,5 @@
 
   </form>
 </div>
+
 @endsection
