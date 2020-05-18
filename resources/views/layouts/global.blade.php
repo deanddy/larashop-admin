@@ -77,6 +77,10 @@
                 </a>
               </li>
 
+              <li>
+                <li><a href="{{route('categories.index')}}"><span class="oi oi-tag"></span> Manage categories</a></li>
+              </li>
+
               <div class="d-block d-md-none">
                   <div class="dropdown-divider"></div>
                   <li><a href="#"> Profile</a></li>
