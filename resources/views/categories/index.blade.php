@@ -39,6 +39,12 @@
 
   <hr class="my-3">
   <div class="row">
+    <div class="col-md-12 text-right">
+      <a href="{{route('categories.create')}}" class="btn btn-primary">Create category</a>
+    </div>
+  </div>
+  <br>
+  <div class="row">
     <div class="col-md-12">
       @if(session('status'))
         <div class="row">
@@ -94,7 +100,7 @@
 
                 <input 
                   type="submit" 
-                  class="btn btn-danger btn-sm" 
+                  class="btn btn-warning btn-sm" 
                   value="Trash">
 
               </form>
