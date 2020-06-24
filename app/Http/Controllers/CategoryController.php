@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
@@ -13,6 +13,16 @@ class CategoryController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
+
+	public function __construct()
+	{
+		$this->middleware(function($request, $next){
+      if(Gate::allows('manage-categories')) return $next($request);
+
+      abort(403, 'Anda tidak memiliki cukup hak akses');
+    });
+	}
+
   public function index(Request $request)
   {
 		$categories = \App\Category::paginate(10);
