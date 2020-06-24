@@ -42,21 +42,21 @@
 
     <label for="">Status</label>
     <input 
-    {{$user->status == "ACTIVE" ? "checked" : ""}}
-    value="ACTIVE"
-    type="radio"
-    class="form-control"
-    id="status"
-    name="status"
-    type="text">
+      {{$user->status == "ACTIVE" ? "checked" : ""}}
+      value="ACTIVE"
+      type="radio"
+      class="form-control"
+      id="active"
+      name="status">
     <label for="active">Active</label>
 
-    <input {{$user->status == "INACTIVE" ? "checked" : ""}} 
-    value="INACTIVE" 
-    type="radio" 
-    class="form-control" 
-    id="inactive" 
-    name="status"> 
+    <input 
+      {{$user->status == "INACTIVE" ? "checked" : ""}} 
+      value="INACTIVE" 
+      type="radio" 
+      class="form-control" 
+      id="inactive" 
+      name="status"> 
     <label for="inactive">Inactive</label>
     <br><br>
 
