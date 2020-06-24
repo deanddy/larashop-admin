@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
   // Pertama adalah model User, kita akan membuat 2 relationship di sini, yaitu user merefensikan model User dan books merepresentasikan banyak model Book yang masuk dalam sebuah `Order.
-
   public function user(){
     return $this->belongsTo('App\User');
   }

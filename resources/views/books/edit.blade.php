@@ -13,6 +13,12 @@
       </div>
     @endif
 
+    @if($errors->first())
+      <div class="alert alert-danger">
+        Error, silahkan periksa kembali data anda
+      </div>
+    @endif
+    
     <form
       enctype="multipart/form-data"
       method="POST"
@@ -26,11 +32,14 @@
       <label for="title">Title</label>
       <input 
         type="text"
-        class="form-control"
-        value="{{$book->title}}"
+        class="form-control {{$errors->first('title') ? "is-invalid" : ""}}"
+        value="{{old('title') ? old('title') : $book->title}}"
         name="title"
         placeholder="Book title"
       />
+      <div class="invalid-feedback">
+        {{$errors->first('title')}}
+      </div>
       <br>
 
       <label for="cover">Cover</label><br>
@@ -49,17 +58,20 @@
       <label for="slug">Slug</label>
       <input 
         type="text"
-        class="form-control"
-        value="{{$book->slug}}"
+        class="form-control {{$errors->first('slug') ? "is-invalid" : ""}}"
+        value="{{old('slug') ? old('slug') : $book->slug}}"
         name="slug"
         placeholder="enter-a-slug"
       />
       <br>
 
       <label for="description">Description</label>
-      <textarea name="description" id="description" class="form-control">
-        {{$book->description}}
+      <textarea name="description" id="description" class="form-control {{$errors->first('description') ? "is-invalid" : ""}}">
+        {{old('description') ? old('description') : $book->description}}
       </textarea>
+      <div class="invalid-feedback">
+        {{$errors->first('description')}}
+      </div>
       <br>
 
       <label for="categories">Categories</label>
@@ -72,24 +84,33 @@
       <label for="stock">Stock</label>
       <input 
         type="text" 
-        class="form-control"
+        class="form-control {{$errors->first('stock') ? "is-invalid" : ""}}"
         placeholder="stock"
         id="stock"
         name="stock"
-        value="{{$book->stock}}"
+        value="{{old('stock') ? old('stock') : $book->stock}}"
       />
       <br>
 
       <label for="author">Author</label>
-      <input placeholder="Author" value="{{$book->author}}" type="text" id="author" name="author" class="form-control">
+      <input placeholder="Author" value="{{old('author') ? old('author') : $book->author}}" type="text" id="author" name="author" class="form-control {{$errors->first('author') ? "is-invalid" : ""}}">
+      <div class="invalid-feedback">
+        {{$errors->first('author')}}
+      </div>
       <br>
 
       <label for="publisher">Publisher</label><br>
-      <input class="form-control" type="text" placeholder="Publisher" name="publisher" id="publisher" value="{{$book->publisher}}">
+      <input class="form-control {{$errors->first('publisher') ? "is-invalid" : ""}}" type="text" placeholder="Publisher" name="publisher" id="publisher" value="{{old('publisher') ? old('publisher') : $book->publisher}}">
+      <div class="invalid-feedback">
+        {{$errors->first('publisher')}}
+      </div>
       <br>
 
       <label for="price">Price</label><br>
-      <input type="text" class="form-control" name="price" placeholder="Price" id="price" value="{{$book->price}}">
+      <input type="text" class="form-control {{$errors->first('price') ? "is-invalid" : ""}}" name="price" placeholder="Price" id="price" value="{{old('price') ? old('price') : $book->price}}">
+      <div class="invalid-feedback">
+        {{$errors->first('price')}}
+      </div>
       <br>
 
       <label for="">Status</label>

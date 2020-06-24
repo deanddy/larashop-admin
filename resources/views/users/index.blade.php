@@ -15,6 +15,7 @@ User list
 <form action="{{route('users.index')}}">
   <div class="row">
     <div class="col-md-6">
+     
       <input 
         value="{{Request::get('keyword')}}" 
         name="keyword" 
